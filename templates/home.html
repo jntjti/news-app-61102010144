@@ -1,0 +1,27 @@
+{% block body %}
+<head>
+ <title>Weather Report</title>
+</head>
+ <h1>Current Weather</h1>
+ <form>
+ <input type="text" name="city" placeholder="weather search">
+ <input type="submit" value="Submit">
+ </form>
+ <p>City: <b>{{weather.city}}, {{weather.country}}</b></p>
+ <p>{{weather.description}} |{{weather.temperature}}&#8451
+    Pressure : {{weather.pressure}}
+    Humidity : {{weather.humidity}}%<br>
+    Wind speed : {{weather.wind}} km/h</p>
+    <img src="{{weather.url_icon}}">
+ </p>
+
+ {% for i in range(5) %}
+ <div style="text-align: center;">
+     <h5><b><a href="{{news.urlList[i]}}" target="_blank">{{news.titleList[i]}}</a></b></h5> <br>
+     <img src="{{news.urlToImageList[i]}}" alt="NewsImage" class="center mb-3 w-50"> <br>
+     <p class="ps-5">{{news.descriptionList[i]}} <a href="{{news.urlList[i]}}" target="_blank">Read more</a></p>
+     <hr>
+ </div>
+ {% endfor %}
+ </p>
+ {% endblock %}
